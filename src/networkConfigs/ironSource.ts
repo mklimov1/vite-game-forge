@@ -1,0 +1,19 @@
+import { zipPlugin, inlinePlugin } from "./../plugins";
+import { createNetworkConfig } from "./../scripts/createNetworkConfig";
+
+const NAME = "ironSource";
+
+export const ironSource = createNetworkConfig({
+  name: NAME,
+  plugins: [inlinePlugin(), zipPlugin(NAME)],
+  ctaFunction: `
+    function cta() {
+      if (typeof dapi !== "undefined") {
+        dapi.openStoreUrl();
+      } else if (typeof mraid !== "undefined") {
+        mraid.open(window.__storeUrl);
+      }
+    }
+  `,
+  scripts: ['<script src="https://s3.amazonaws.com/mraid/mraid.js"></script>'],
+});

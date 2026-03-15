@@ -1,0 +1,1 @@
+declare function cta(): void;
