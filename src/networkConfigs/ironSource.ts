@@ -1,11 +1,9 @@
-import { zipPlugin, inlinePlugin } from "./../plugins";
 import { createNetworkConfig } from "./../scripts/createNetworkConfig";
 
 const NAME = "ironSource";
 
 export const ironSource = createNetworkConfig({
   name: NAME,
-  plugins: [inlinePlugin(), zipPlugin(NAME)],
   ctaFunction: `
     function cta() {
       if (typeof dapi !== "undefined") {
