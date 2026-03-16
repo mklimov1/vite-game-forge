@@ -4,6 +4,7 @@ import {
   inlinePlugin,
   scriptsPlugin,
   zipPlugin,
+  sizeReportPlugin,
 } from "./../plugins";
 import type { NetworkConfig } from "./../types/networkConfig";
 
@@ -13,6 +14,7 @@ interface Options extends Omit<NetworkConfig, "plugins"> {
   plugins?: Plugin[];
   inline?: boolean;
   zip?: boolean;
+  sizeReport?: boolean;
 }
 
 export const createNetworkConfig = (config: Options): NetworkConfig => {
@@ -24,6 +26,7 @@ export const createNetworkConfig = (config: Options): NetworkConfig => {
 
   if (config.inline !== false) plugins.push(inlinePlugin());
   if (config.zip !== false) plugins.push(zipPlugin(config.name));
+  if (config.sizeReport !== false) plugins.push(sizeReportPlugin());
 
   return {
     ...config,
