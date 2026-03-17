@@ -1,12 +1,12 @@
 import type { Plugin } from "vite";
 import {
   ctaPlugin,
-  inlinePlugin,
   scriptsPlugin,
   zipPlugin,
   sizeReportPlugin,
 } from "./../plugins";
 import type { NetworkConfig } from "./../types/networkConfig";
+import { viteSingleFile } from "vite-plugin-singlefile";
 
 const MAX_SIZE = 5 * 1024 * 1024;
 
@@ -24,7 +24,7 @@ export const createNetworkConfig = (config: Options): NetworkConfig => {
     ...(config.plugins ?? []),
   ];
 
-  if (config.inline !== false) plugins.push(inlinePlugin());
+  if (config.inline !== false) plugins.push(viteSingleFile() as Plugin);
   if (config.zip !== false) plugins.push(zipPlugin(config.name));
   if (config.sizeReport !== false) plugins.push(sizeReportPlugin());
 
