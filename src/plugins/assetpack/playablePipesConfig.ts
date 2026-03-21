@@ -1,27 +1,9 @@
 import { ffmpeg } from "@assetpack/core/ffmpeg";
 import type { PixiAssetPack } from "@assetpack/core/pixi";
+import { defaultPipesConfig } from "./defaultPipesConfig";
 
 export const playablePipesConfig: PixiAssetPack = {
-  cacheBust: false,
-  texturePacker: {
-    addFrameNames: false,
-    texturePacker: {
-      nameStyle: "relative",
-      removeFileExtension: true,
-      allowTrim: true,
-      allowRotation: true,
-    },
-    resolutionOptions: {
-      resolutions: { default: 1 },
-      fixedResolution: "default",
-    },
-  },
-  resolutions: { default: 1 },
-  manifest: {
-    trimExtensions: true,
-    nameStyle: "relative",
-    createShortcuts: true,
-  },
+  ...defaultPipesConfig,
   compression: {
     png: true,
     webp: false,

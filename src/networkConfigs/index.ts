@@ -1,2 +1,2 @@
 export { develop } from "./develop";
-export { ironSource } from "./ironSource";
+export { ironsource } from "./ironsource";
