@@ -1,9 +1,10 @@
 import type { UserConfig } from "vite";
 import { createConfig, type ConfigOptions } from "./createConfig";
 import { resolveNetwork } from "../scripts/resolveNetwork";
+import type { NetworkName } from "@/networkConfigs";
 
 export interface PlayableConfigOptions extends ConfigOptions {
-  network?: string;
+  network?: NetworkName;
 }
 
 export const playableConfig = (
