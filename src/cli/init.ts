@@ -18,13 +18,6 @@ const INFRA_TARGET = join(TARGET_DIR, ".infra");
 const force = process.argv.includes("--force");
 const preset = process.argv.includes("--playable") ? "playable" : "default";
 
-const ROOT_FILES = [
-  ".gitignore",
-  ".prettierignore",
-  ".lintstagedrc",
-  ".prettierrc",
-];
-
 const REQUIRED_DEPS = [
   "@eslint/js",
   "eslint",
@@ -65,11 +58,7 @@ const patchTsconfig = () => {
 
 const copyDir = (dir: string) => {
   for (const file of readdirSync(dir)) {
-    if (ROOT_FILES.includes(file)) {
-      copyFile(join(dir, file), join(TARGET_DIR, file));
-    } else {
-      copyFile(join(dir, file), join(INFRA_TARGET, file));
-    }
+    copyFile(join(dir, file), join(INFRA_TARGET, file));
   }
 };
 
