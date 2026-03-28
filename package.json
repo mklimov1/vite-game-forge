@@ -30,8 +30,7 @@
     "@types/node": "^25.5.0",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
-    "vite": "^8.0.0",
-    "vite-plugin-zip-pack": "^1.2.4"
+    "vite": "^8.0.0"
   },
   "peerDependencies": {
     "@assetpack/core": "^1.0.0",
@@ -43,6 +42,7 @@
     }
   },
   "dependencies": {
-    "vite-plugin-singlefile": "^2.3.2"
+    "vite-plugin-singlefile": "^2.3.2",
+    "vite-plugin-zip-pack": "^1.2.4"
   }
 }
