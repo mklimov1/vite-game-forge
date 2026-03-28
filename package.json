@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-playable",
+  "name": "vite-game-forge",
   "version": "0.0.0",
   "type": "module",
   "bin": {
